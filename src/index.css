@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-primary-black text-text-white font-body;
+    line-height: 1.6;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-gradient-to-r from-secondary-gold to-secondary-blue bg-clip-text text-transparent;
+  }
+  
+  .hero-grid-item {
+    @apply relative overflow-hidden rounded-lg;
+    transition: transform 0.3s ease;
+  }
+  
+  .hero-grid-item:hover {
+    transform: scale(1.02);
+  }
+  
+  .hero-image {
+    @apply w-full h-full object-cover transition-opacity duration-1000;
+  }
+  
+  .service-card {
+    @apply bg-primary-charcoal p-6 rounded-xl border border-primary-gray hover:border-secondary-gold transition-all duration-300;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(255, 215, 0, 0.1);
+  }
+  
+  .artist-card {
+    @apply relative overflow-hidden rounded-lg bg-primary-charcoal border border-primary-gray hover:border-secondary-blue transition-all duration-300;
+  }
+  
+  .artist-card:hover {
+    transform: scale(1.03);
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-gold-orange hover:opacity-90 text-primary-black font-semibold px-6 py-3 rounded-lg transition-all duration-300;
+  }
+  
+  .btn-secondary {
+    @apply border-2 border-secondary-blue text-secondary-blue hover:bg-secondary-blue hover:text-primary-black px-6 py-3 rounded-lg transition-all duration-300;
+  }
+  
+  .glass-effect {
+    backdrop-filter: blur(10px);
+    background: rgba(26, 26, 26, 0.8);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FFD700;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00FFFF;
+}
+
+/* Loading animation */
+.loading-spinner {
+  border: 3px solid rgba(255, 215, 0, 0.3);
+  border-top: 3px solid #FFD700;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
