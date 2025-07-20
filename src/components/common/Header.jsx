@@ -21,10 +21,8 @@ const Header = () => {
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <img src="/logo.png" alt="Husky Media" className="h-10 w-10" />
-            <span className="text-xl font-heading font-bold gradient-text">
-              Husky Media
-            </span>
+            <img src="/husky.png" alt="Husky Media" className="h-14 "/>
+  
           </Link>
 
           {/* Desktop Navigation */}
@@ -43,13 +41,6 @@ const Header = () => {
               </Link>
             ))}
           </nav>
-
-          {/* CTA Button */}
-          <div className="hidden md:block">
-            <Link to="/contact" className="btn-primary">
-              Get Started
-            </Link>
-          </div>
 
           {/* Mobile Menu Button */}
           <button

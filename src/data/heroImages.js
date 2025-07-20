@@ -1,4 +1,12 @@
 import jigarwalaImg from '../assets/img/jigarwala.jpg';
+import akshaykr from '../assets/artists/akshaykr.jpg';
+import srk from '../assets/artists/srk.jpg';
+import salmankhan from '../assets/artists/salmankhan.jpg';
+import allu from '../assets/img/allu.jpg';
+import yash from '../assets/img/yash.jpg';
+import first from '../assets/insights/first.jpg';
+import second from '../assets/insights/second.jpg';
+import third from '../assets/insights/third.jpg';
 
 export const heroImages = {
   studio: [
@@ -9,46 +17,46 @@ export const heroImages = {
     },
     {
       id: 2,
-      src: '/images/hero/studio/studio-2.jpg',
+      src: allu,
       alt: 'Artist recording vocals in studio booth'
     },
     {
       id: 3,
-      src: '/images/hero/studio/studio-3.jpg',
+      src: yash,
       alt: 'Music producer working at digital audio workstation'
     }
   ],
   performance: [
     {
       id: 1,
-      src: '/images/hero/performance/concert-1.jpg',
+      src: akshaykr,
       alt: 'Live concert with stage lighting and crowd'
     },
     {
       id: 2,
-      src: '/images/hero/performance/concert-2.jpg',
+      src: srk,
       alt: 'Music festival main stage performance'
     },
     {
       id: 3,
-      src: '/images/hero/performance/concert-3.jpg',
+      src: salmankhan,
       alt: 'Intimate acoustic performance venue'
     }
   ],
   artists: [
     {
       id: 1,
-      src: '/images/hero/artists/artist-1.jpg',
+      src: second,
       alt: 'Professional artist portrait session'
     },
     {
       id: 2,
-      src: '/images/hero/artists/artist-2.jpg',
+      src: first,
       alt: 'Singer-songwriter with guitar in studio'
     },
     {
       id: 3,
-      src: '/images/hero/artists/artist-3.jpg',
+      src: third,
       alt: 'Band promotional photoshoot'
     }
   ],
@@ -74,20 +82,20 @@ export const heroImages = {
 export const heroGridConfig = [
   { 
     category: 'studio', 
-    title: 'STUDIO MASTERY',
-    subtitle: 'Professional Recording',
+    title: 'Movies',
+    subtitle: '',
     className: 'col-span-1 row-span-1'
   },
   { 
     category: 'performance', 
-    title: 'LIVE ENERGY',
-    subtitle: 'Concert Production',
+    title: 'Artists',
+    subtitle: '',
     className: 'col-span-1 row-span-1'
   },
   { 
     category: 'artists', 
-    title: 'ARTIST VISION',
-    subtitle: 'Creative Portraits',
+    title: 'Achievements',
+    subtitle: '',
     className: 'col-span-1 row-span-1'
   },
 ];

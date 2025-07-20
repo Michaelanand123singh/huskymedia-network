@@ -90,22 +90,12 @@ const HeroSection = () => {
                   
                   {/* Top Badge */}
                   <div className="flex justify-between items-start">
-                    <div className="px-3 py-1 bg-red-600 text-white text-xs font-bold rounded-md">
-                      PREMIUM
-                    </div>
                     <div className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full border border-white/30 flex items-center justify-center">
                       <div className="w-3 h-3 bg-gradient-to-r from-yellow-400 to-red-500 rounded-full" />
                     </div>
                   </div>
 
-                  {/* Center Logo Area */}
-                  <div className="text-center flex-1 flex items-center justify-center">
-                    <div className="space-y-4">
-                      <div className="w-16 h-16 mx-auto bg-black/50 backdrop-blur-md rounded-full border-2 border-white/40 flex items-center justify-center">
-                        <div className="w-8 h-8 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full animate-pulse" />
-                      </div>
-                    </div>
-                  </div>
+            
 
                   {/* Bottom Title Section */}
                   <div className="text-center space-y-3">
