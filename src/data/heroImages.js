@@ -1,8 +1,10 @@
+import jigarwalaImg from '../assets/img/jigarwala.jpg';
+
 export const heroImages = {
   studio: [
     {
       id: 1,
-      src: '/images/hero/studio/studio-1.jpg',
+      src: jigarwalaImg,
       alt: 'Professional recording studio with mixing console'
     },
     {
@@ -72,22 +74,20 @@ export const heroImages = {
 export const heroGridConfig = [
   { 
     category: 'studio', 
-    title: 'Recording Studios',
+    title: 'STUDIO MASTERY',
+    subtitle: 'Professional Recording',
     className: 'col-span-1 row-span-1'
   },
   { 
     category: 'performance', 
-    title: 'Live Performances',
+    title: 'LIVE ENERGY',
+    subtitle: 'Concert Production',
     className: 'col-span-1 row-span-1'
   },
   { 
     category: 'artists', 
-    title: 'Artist Portraits',
+    title: 'ARTIST VISION',
+    subtitle: 'Creative Portraits',
     className: 'col-span-1 row-span-1'
   },
-  { 
-    category: 'production', 
-    title: 'Music Production',
-    className: 'col-span-1 row-span-1'
-  }
 ];
