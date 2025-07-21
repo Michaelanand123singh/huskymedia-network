@@ -52,10 +52,10 @@ const VideoGallery = () => {
     : videos.filter(video => video.category === selectedCategory);
 
   return (
-    <section className="py-16 px-6">
+    <section className="py-16 px-6 bg-black min-h-screen">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl font-heading font-bold text-center mb-12">
-          Video <span className="gradient-text">Gallery</span>
+        <h2 className="text-4xl font-heading font-bold text-center mb-12 text-white">
+          Video <span className="text-red-500">Gallery</span>
         </h2>
         
         {/* Category Filter */}
@@ -66,8 +66,8 @@ const VideoGallery = () => {
               onClick={() => setSelectedCategory(category)}
               className={`px-6 py-2 rounded-full transition-all ${
                 selectedCategory === category
-                  ? 'bg-secondary-red text-black'
-                  : 'bg-primary-charcoal text-white hover:bg-primary-gray'
+                  ? 'bg-red-600 text-white'
+                  : 'bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white'
               }`}
             >
               {category}
