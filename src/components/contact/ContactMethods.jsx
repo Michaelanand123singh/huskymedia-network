@@ -46,16 +46,16 @@ const ContactMethods = () => {
   };
 
   return (
-    <section className="py-16 px-6">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <section className="py-12 px-6 bg-black">
+      <div className="max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           
           {/* Contact Method Selection */}
           <div className="lg:col-span-1">
-            <h3 className="text-2xl font-heading font-bold mb-6">
-              Choose Your <span className="gradient-text">Method</span>
+            <h3 className="text-xl font-bold mb-4 text-white">
+              Choose Your <span className="text-red-500">Method</span>
             </h3>
-            <div className="space-y-4">
+            <div className="space-y-3">
               {contactMethods.map((method) => {
                 const Icon = method.icon;
                 return (
@@ -65,18 +65,18 @@ const ContactMethods = () => {
                       setSelectedMethod(method.id);
                       setFormData({ ...formData, inquiryType: method.id });
                     }}
-                    className={`w-full p-4 rounded-lg text-left transition-all ${
+                    className={`w-full p-3 rounded-lg text-left transition-all ${
                       selectedMethod === method.id
-                        ? 'bg-secondary-gold text-primary-black'
-                        : 'bg-primary-charcoal hover:bg-primary-gray'
+                        ? 'bg-red-600 text-white'
+                        : 'bg-gray-900 hover:bg-gray-800 text-gray-300'
                     }`}
                   >
-                    <div className="flex items-center gap-3 mb-2">
-                      <Icon size={20} />
-                      <span className="font-semibold">{method.title}</span>
+                    <div className="flex items-center gap-2 mb-1">
+                      <Icon size={18} />
+                      <span className="font-medium text-sm">{method.title}</span>
                     </div>
-                    <p className={`text-sm ${
-                      selectedMethod === method.id ? 'text-primary-black' : 'text-text-gray'
+                    <p className={`text-xs ${
+                      selectedMethod === method.id ? 'text-gray-200' : 'text-gray-400'
                     }`}>
                       {method.description}
                     </p>
@@ -88,61 +88,61 @@ const ContactMethods = () => {
 
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium mb-2">Name *</label>
+                  <label className="block text-sm font-medium mb-1 text-gray-300">Name *</label>
                   <input
                     type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="w-full bg-primary-charcoal border border-primary-gray rounded-lg px-4 py-3 focus:border-secondary-gold focus:outline-none"
+                    className="w-full bg-gray-900 border border-gray-700 rounded-lg px-3 py-2 text-white focus:border-red-500 focus:outline-none transition-colors"
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">Email *</label>
+                  <label className="block text-sm font-medium mb-1 text-gray-300">Email *</label>
                   <input
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full bg-primary-charcoal border border-primary-gray rounded-lg px-4 py-3 focus:border-secondary-gold focus:outline-none"
+                    className="w-full bg-gray-900 border border-gray-700 rounded-lg px-3 py-2 text-white focus:border-red-500 focus:outline-none transition-colors"
                     required
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Subject *</label>
+                <label className="block text-sm font-medium mb-1 text-gray-300">Subject *</label>
                 <input
                   type="text"
                   name="subject"
                   value={formData.subject}
                   onChange={handleInputChange}
-                  className="w-full bg-primary-charcoal border border-primary-gray rounded-lg px-4 py-3 focus:border-secondary-gold focus:outline-none"
+                  className="w-full bg-gray-900 border border-gray-700 rounded-lg px-3 py-2 text-white focus:border-red-500 focus:outline-none transition-colors"
                   required
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Message *</label>
+                <label className="block text-sm font-medium mb-1 text-gray-300">Message *</label>
                 <textarea
                   name="message"
                   value={formData.message}
                   onChange={handleInputChange}
-                  rows="6"
-                  className="w-full bg-primary-charcoal border border-primary-gray rounded-lg px-4 py-3 focus:border-secondary-gold focus:outline-none resize-none"
+                  rows="4"
+                  className="w-full bg-gray-900 border border-gray-700 rounded-lg px-3 py-2 text-white focus:border-red-500 focus:outline-none resize-none transition-colors"
                   required
                 />
               </div>
 
               <button 
                 type="submit"
-                className="btn-primary flex items-center gap-2 w-full justify-center"
+                className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg flex items-center justify-center gap-2 w-full transition-colors font-medium"
               >
-                <Send size={20} />
+                <Send size={18} />
                 Send Message
               </button>
             </form>

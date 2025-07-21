@@ -66,7 +66,7 @@ const VideoGallery = () => {
               onClick={() => setSelectedCategory(category)}
               className={`px-6 py-2 rounded-full transition-all ${
                 selectedCategory === category
-                  ? 'bg-secondary-gold text-black'
+                  ? 'bg-secondary-red text-black'
                   : 'bg-primary-charcoal text-white hover:bg-primary-gray'
               }`}
             >

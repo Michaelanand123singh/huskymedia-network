@@ -2,42 +2,42 @@ import { MessageCircle, Calendar, Phone } from 'lucide-react';
 
 const ContactHero = () => {
   return (
-    <section className="relative h-[70vh] bg-gradient-dark flex items-center justify-center">
-      <div className="text-center max-w-4xl mx-auto px-6">
-        <h1 className="text-5xl md:text-7xl font-heading font-black mb-6">
-          Let's Create <span className="gradient-text">Together</span>
+    <section className="relative h-[70vh] bg-black flex items-center justify-center">
+      <div className="text-center max-w-3xl mx-auto px-6">
+        <h1 className="text-3xl md:text-5xl font-bold mb-4 text-white">
+          Contact us 
         </h1>
-        <p className="text-xl md:text-2xl text-text-gray mb-8">
+        <p className="text-lg md:text-xl text-gray-300 mb-6">
           Ready to take your music career to the next level? Get in touch with our team.
         </p>
         
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-          <button className="btn-primary flex items-center gap-2">
-            <Calendar size={20} />
+        <div className="flex flex-col sm:flex-row gap-3 justify-center mb-8">
+          <button className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg flex items-center justify-center gap-2 transition-colors">
+            <Calendar size={18} />
             Book Consultation
           </button>
-          <button className="btn-secondary flex items-center gap-2">
-            <MessageCircle size={20} />
+          <button className="bg-transparent border border-red-500 hover:bg-red-500 text-red-500 hover:text-white px-6 py-2 rounded-lg flex items-center justify-center gap-2 transition-colors">
+            <MessageCircle size={18} />
             Live Chat
           </button>
-          <button className="btn-secondary flex items-center gap-2">
-            <Phone size={20} />
+          <button className="bg-transparent border border-red-500 hover:bg-red-500 text-red-500 hover:text-white px-6 py-2 rounded-lg flex items-center justify-center gap-2 transition-colors">
+            <Phone size={18} />
             Call Now
           </button>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
           <div>
-            <h3 className="text-2xl font-bold text-secondary-gold mb-2">24/7</h3>
-            <p className="text-text-gray">Support Available</p>
+            <h3 className="text-xl font-bold text-red-500 mb-1">24/7</h3>
+            <p className="text-gray-400 text-sm">Support Available</p>
           </div>
           <div>
-            <h3 className="text-2xl font-bold text-secondary-gold mb-2">&lt; 2hrs</h3>
-            <p className="text-text-gray">Response Time</p>
+            <h3 className="text-xl font-bold text-red-500 mb-1">&lt; 2hrs</h3>
+            <p className="text-gray-400 text-sm">Response Time</p>
           </div>
           <div>
-            <h3 className="text-2xl font-bold text-secondary-gold mb-2">95%</h3>
-            <p className="text-text-gray">Client Satisfaction</p>
+            <h3 className="text-xl font-bold text-red-500 mb-1">95%</h3>
+            <p className="text-gray-400 text-sm">Client Satisfaction</p>
           </div>
         </div>
       </div>

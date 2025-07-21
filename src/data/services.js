@@ -1,102 +1,118 @@
 export const services = [
   {
     id: 1,
-    title: "Artist Development",
-    icon: "🎤",
-    description: "Complete brand building and career milestone planning for emerging and established artists.",
-    image: "/images/services/artist-development.jpg",
+    title: "Customer Support",
+    icon: "🎧",
+    description: "Well-armed YouTube certified team for your support! Experts who are always ready to support you 24/7. You can contact us via email, Skype, Facebook & WhatsApp.",
+    image: "/images/services/customer-support.jpg",
     features: [
-      "Professional brand strategy",
-      "Social media management",
-      "Content creation",
-      "Career planning"
+      "24/7 expert support",
+      "YouTube certified team",
+      "Multi-channel communication",
+      "Instant response guarantee"
     ],
-    pricing: "Starting from $2,500/month",
-    duration: "3-12 months"
+    pricing: "Included with all plans",
+    duration: "Ongoing"
   },
   {
     id: 2,
-    title: "Digital Distribution",
-    icon: "🌐",
-    description: "Multi-platform release strategy with playlist placement and streaming optimization.",
-    image: "/images/services/digital-distribution.jpg",
+    title: "No Lock In Contract",
+    icon: "🔓",
+    description: "We do not LOCK content creators At all! With No-Strings-Attached contracts you are always free to leave. As it is one-click to join, it's also one-click to disengage.",
+    image: "/images/services/no-lock-contract.jpg",
     features: [
-      "Multi-platform releases",
-      "Playlist placement",
-      "Streaming optimization",
-      "Revenue analytics"
+      "No binding contracts",
+      "One-click join process",
+      "One-click cancellation",
+      "Complete freedom to leave"
     ],
-    pricing: "Starting from $500/release",
-    duration: "Per release"
+    pricing: "No contract fees",
+    duration: "Flexible"
   },
   {
     id: 3,
-    title: "Content Production",
-    icon: "🎬",
-    description: "Professional music videos, photography, and marketing materials creation.",
-    image: "/images/services/content-production.jpg",
+    title: "Dashboard",
+    icon: "📊",
+    description: "We are proud to offer our YouTube partners with the most powerful dashboard. You can easily track every KPI (your earning details, channel statistics, growth report and many more).",
+    image: "/images/services/dashboard.jpg",
     features: [
-      "Music video production",
-      "Professional photography",
-      "Marketing materials",
-      "Social content"
+      "Real-time KPI tracking",
+      "Earning details",
+      "Channel statistics",
+      "Growth reports"
     ],
-    pricing: "Starting from $5,000/project",
-    duration: "2-8 weeks"
+    pricing: "Included with partnership",
+    duration: "Real-time access"
   },
   {
     id: 4,
-    title: "Technology Solutions",
-    icon: "💻",
-    description: "Artist websites, mobile apps, and streaming platform integration services.",
-    image: "/images/services/technology.jpg",
+    title: "Payment Options",
+    icon: "💳",
+    description: "We provide the world most diversity in payment methods! Our partners get monthly & seasonally paid through their preferred method, including - but not limited to - options like cash, PayPal, direct bank deposit, check, exchange agencies etc.",
+    image: "/images/services/payment-options.jpg",
     features: [
-      "Artist websites & EPKs",
-      "Mobile app development",
-      "Platform integration",
-      "Analytics dashboard"
+      "Multiple payment methods",
+      "Monthly & seasonal payments",
+      "Cash, PayPal, bank transfer",
+      "Exchange agency options"
     ],
-    pricing: "Starting from $3,000/project",
-    duration: "4-12 weeks"
+    pricing: "No processing fees",
+    duration: "Monthly/Seasonal"
   },
   {
     id: 5,
-    title: "Marketing & Promotion",
-    icon: "📢",
-    description: "Comprehensive marketing campaigns and promotional strategies for maximum reach.",
-    image: "/images/services/marketing.jpg",
+    title: "Copyright Protection",
+    icon: "©️",
+    description: "We offer Content ID features to protect your Copyrighted Contents. We will fight content piracy on behalf of you. This including claims, block, terminate, contain and you still make money from your contents all the time, everywhere.",
+    image: "/images/services/copyright-protection.jpg",
     features: [
-      "Campaign strategy",
-      "Social media advertising",
-      "Influencer partnerships",
-      "PR & media outreach"
+      "Content ID protection",
+      "Anti-piracy enforcement",
+      "Automated claims management",
+      "Revenue protection"
     ],
-    pricing: "Starting from $1,500/month",
-    duration: "3-6 months"
+    pricing: "Included with partnership",
+    duration: "Ongoing protection"
   },
   {
     id: 6,
-    title: "Analytics & Insights",
-    icon: "📊",
-    description: "Data-driven insights and performance tracking across all platforms and campaigns.",
-    image: "/images/services/analytics.jpg",
+    title: "Social Tools",
+    icon: "🔗",
+    description: "Free in-house developed tools integrating all Social Media accounts at one place to: Manage, Create & Publish contents! This helps the inspiration & automation of extra engagements to acquire new audience. Collaborate across teams to optimize content scheduling and execution.",
+    image: "/images/services/social-tools.jpg",
     features: [
-      "Performance tracking",
-      "Audience insights",
-      "Revenue optimization",
-      "Custom reporting"
+      "Multi-platform management",
+      "Content creation tools",
+      "Automated publishing",
+      "Team collaboration"
     ],
-    pricing: "Starting from $800/month",
-    duration: "Ongoing"
+    pricing: "Free with partnership",
+    duration: "Unlimited usage"
+  },
+  
+  {
+    id: 9,
+    title: "Revenue Share",
+    icon: "💰",
+    description: "One affordable business model is sharing, both costs and revenues! Your optimal catalogue performance will make you more money & increased engagements every month. We grantee the best model in the market.",
+    image: "/images/services/revenue-share.jpg",
+    features: [
+      "Performance-based revenue",
+      "Optimal catalogue management",
+      "Increased engagement tracking",
+      "Market-leading rates"
+    ],
+    pricing: "Revenue sharing model",
+    duration: "Ongoing partnership"
   }
 ];
 
 export const serviceCategories = [
   "All Services",
-  "Artist Development",
-  "Digital Distribution", 
-  "Content Production",
-  "Technology Solutions",
-  "Marketing & Promotion",
-  "Analytics & Insights"
+  "Support & Contracts",
+  "Analytics & Dashboard",
+  "Payment & Revenue",
+  "Content Protection",
+  "Social & Marketing",
+  "Development Services"
 ];

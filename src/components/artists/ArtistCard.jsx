@@ -1,86 +1,38 @@
-import { TrendingUp, Users, Music } from 'lucide-react';
+// ArtistCard.jsx
+import React from 'react';
 
-const ArtistCard = ({ artist }) => {
-  const getStatusColor = (status) => {
-    switch (status) {
-      case 'Featured': return 'text-secondary-gold';
-      case 'Rising': return 'text-secondary-blue';
-      case 'Established': return 'text-green-400';
-      default: return 'text-text-gray';
-    }
-  };
-
-  const getStatusBg = (status) => {
-    switch (status) {
-      case 'Featured': return 'bg-secondary-gold/10 border-secondary-gold';
-      case 'Rising': return 'bg-secondary-blue/10 border-secondary-blue';
-      case 'Established': return 'bg-green-400/10 border-green-400';
-      default: return 'bg-primary-gray/10 border-primary-gray';
+const ArtistCard = ({ artist, size = 'medium' }) => {
+  const getSizeClasses = (size) => {
+    switch (size) {
+      case 'large':
+        return 'md:row-span-2 h-96 md:h-[500px]';
+      case 'medium':
+        return 'h-80 md:h-96';
+      case 'small':
+        return 'h-64 md:h-80';
+      default:
+        return 'h-80';
     }
   };
 
   return (
-    <div className="artist-card group cursor-pointer">
-      {/* Artist Image */}
-      <div className="relative overflow-hidden rounded-t-lg">
+    <div className={`group cursor-pointer ${getSizeClasses(size)}`}>
+      <div className="relative h-full overflow-hidden rounded-lg bg-gray-900 border border-gray-800 hover:border-red-500/50 transition-all duration-300">
         <img 
           src={artist.image} 
           alt={artist.name}
-          className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+          className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105 group-hover:brightness-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
         
-        {/* Status Badge */}
-        <div className={`absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-semibold border ${getStatusBg(artist.status)}`}>
-          <span className={getStatusColor(artist.status)}>{artist.status}</span>
-        </div>
+        {/* Subtle overlay on hover */}
+        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         
-        {/* Growth Indicator */}
-        <div className="absolute bottom-4 right-4 flex items-center gap-1 bg-black/60 rounded-full px-2 py-1">
-          <TrendingUp className="w-3 h-3 text-secondary-gold" />
-          <span className="text-xs text-secondary-gold font-semibold">{artist.stats.growth}</span>
-        </div>
-      </div>
-
-      {/* Artist Info */}
-      <div className="p-6">
-        <h3 className="text-xl font-bold mb-2 group-hover:text-secondary-gold transition-colors">
-          {artist.name}
-        </h3>
-        
-        {/* Genres */}
-        <div className="flex flex-wrap gap-2 mb-3">
-          {artist.genre.map((g, index) => (
-            <span key={index} className="text-xs bg-primary-gray px-2 py-1 rounded text-text-gray">
-              {g}
-            </span>
-          ))}
-        </div>
-
-        <p className="text-sm text-text-gray mb-4 line-clamp-2">
-          {artist.description}
-        </p>
-
-        {/* Stats */}
-        <div className="grid grid-cols-3 gap-4 pt-4 border-t border-primary-gray">
-          <div className="text-center">
-            <div className="flex items-center justify-center gap-1 mb-1">
-              <Users className="w-4 h-4 text-secondary-blue" />
-            </div>
-            <p className="text-sm font-semibold">{artist.stats.followers}</p>
-            <p className="text-xs text-text-gray">Followers</p>
-          </div>
-          <div className="text-center">
-            <div className="flex items-center justify-center gap-1 mb-1">
-              <Music className="w-4 h-4 text-secondary-gold" />
-            </div>
-            <p className="text-sm font-semibold">{artist.stats.streams}</p>
-            <p className="text-xs text-text-gray">Streams</p>
-          </div>
-          <div className="text-center">
-            <p className="text-sm font-semibold text-secondary-gold">{artist.stats.growth}</p>
-            <p className="text-xs text-text-gray">Growth</p>
-          </div>
+        {/* Optional: Artist name overlay on hover */}
+        <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <h3 className="text-white font-semibold text-lg drop-shadow-lg">
+            {artist.name}
+          </h3>
+          <div className="w-8 h-0.5 bg-red-500 mt-1"></div>
         </div>
       </div>
     </div>

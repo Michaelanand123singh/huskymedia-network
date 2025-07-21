@@ -1,8 +1,10 @@
+import ajay from '../assets/featured/ajay.jpg';
+
 export const artists = [
   {
     id: 1,
     name: "Ajay Devgan",
-    image: "/images/artists/ajay-devgan.jpg",
+    image: ajay,
     genre: ["Action", "Drama"],
     status: "Featured",
     stats: {
@@ -11,7 +13,6 @@ export const artists = [
       growth: "+25%"
     },
     description: "Versatile actor and filmmaker known for intense performances and blockbuster hits.",
-    joinedDate: "2020",
     achievements: ["National Film Award", "Padma Shri", "Multiple Filmfare Awards"]
   },
   {
@@ -26,7 +27,6 @@ export const artists = [
       growth: "+35%"
     },
     description: "Prolific actor known for diverse roles and dedication to fitness and social causes.",
-    joinedDate: "2019",
     achievements: ["Padma Shri", "National Film Award", "Box Office King"]
   },
   {
@@ -41,7 +41,6 @@ export const artists = [
       growth: "+20%"
     },
     description: "International star and mental health advocate with critically acclaimed performances.",
-    joinedDate: "2018",
     achievements: ["Time 100 Most Influential", "Padma Shri", "International Recognition"]
   },
   {
@@ -56,7 +55,6 @@ export const artists = [
       growth: "+30%"
     },
     description: "Dynamic performer known for transformative roles and charismatic screen presence.",
-    joinedDate: "2021",
     achievements: ["Filmfare Awards", "Critics Choice", "Commercial Success"]
   },
   {
@@ -71,7 +69,6 @@ export const artists = [
       growth: "+18%"
     },
     description: "Versatile actor with a strong dance background and critically acclaimed performances.",
-    joinedDate: "2020",
     achievements: ["Filmfare Awards", "Screen Awards", "Dance Excellence"]
   },
   {
@@ -86,7 +83,7 @@ export const artists = [
       growth: "+22%"
     },
     description: "Action star and producer known for high-octane films and fitness inspiration.",
-    joinedDate: "2022",
+
     achievements: ["Producer Success", "Action Star", "Fitness Icon"]
   }
 ];
@@ -94,3 +91,8 @@ export const artists = [
 export const featuredArtists = artists.filter(artist => artist.status === "Featured");
 export const risingArtists = artists.filter(artist => artist.status === "Rising");
 export const establishedArtists = artists.filter(artist => artist.status === "Established");
+
+
+
+
+

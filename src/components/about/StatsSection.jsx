@@ -1,4 +1,4 @@
-
+import React from 'react';
 
 const StatsSection = () => {
   const stats = [
@@ -9,32 +9,47 @@ const StatsSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-purple-blue">
-      <div className="container mx-auto px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-heading font-bold mb-6 text-white">
-            Our Impact in <span className="text-secondary-gold">Numbers</span>
+    <section className="py-24 bg-black">
+      <div className="max-w-7xl mx-auto px-8 lg:px-12">
+        {/* Header */}
+        <div className="text-center mb-20">
+          <h2 className="text-5xl lg:text-6xl font-bold mb-8 text-white tracking-tight">
+            Our Impact in <span className="text-red-500">Numbers</span>
           </h2>
+          <div className="w-24 h-1 bg-red-500 mx-auto"></div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Stats Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
           {stats.map((stat, index) => (
             <div key={index} className="text-center group">
-              <div className="text-5xl mb-4 group-hover:animate-float">{stat.icon}</div>
-              <div className="text-4xl lg:text-5xl font-heading font-black text-secondary-gold mb-2">
+              {/* Icon */}
+              <div className="text-6xl mb-8 transform group-hover:scale-110 transition-transform duration-300">
+                {stat.icon}
+              </div>
+              
+              {/* Number */}
+              <div className="text-5xl lg:text-6xl font-black text-red-500 mb-4 tracking-tight">
                 {stat.number}
               </div>
-              <div className="text-lg text-white font-medium">{stat.label}</div>
+              
+              {/* Label */}
+              <div className="text-xl text-white font-medium tracking-wide">
+                {stat.label}
+              </div>
+              
+              {/* Underline */}
+              <div className="w-16 h-0.5 bg-gray-600 mx-auto mt-6 group-hover:bg-red-500 transition-colors duration-300"></div>
             </div>
           ))}
         </div>
 
-        <div className="mt-16 text-center">
-          <div className="inline-block p-8 bg-white/10 rounded-2xl backdrop-blur-sm">
-            <p className="text-xl text-white mb-4">
-              "We don't just work with artists, we build careers that last."
-            </p>
-            <p className="text-secondary-gold font-semibold">- Alex Rodriguez, Founder</p>
+        {/* Bottom Accent */}
+        <div className="mt-20 flex justify-center">
+          <div className="flex space-x-2">
+            <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+            <div className="w-3 h-3 bg-gray-600 rounded-full"></div>
+            <div className="w-3 h-3 bg-gray-600 rounded-full"></div>
           </div>
         </div>
       </div>

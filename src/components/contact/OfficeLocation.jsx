@@ -5,7 +5,7 @@ const OfficeLocation = () => {
     {
       icon: MapPin,
       title: 'Prime Location',
-      description: 'Heart of Music Row, Nashville'
+      description: 'Heart of Hyderabad, India'
     },
     {
       icon: Car,
@@ -25,48 +25,48 @@ const OfficeLocation = () => {
   ];
 
   return (
-    <section className="py-16 px-6 bg-primary-charcoal">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-heading font-bold mb-4">
-            Visit Our <span className="gradient-text">Studio</span>
+    <section className="py-12 px-6 bg-gray-900">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold mb-2 text-white">
+            Visit Our <span className="text-red-500">Studio</span>
           </h2>
-          <p className="text-text-gray text-lg">
-            Located in the heart of Nashville's music district
+          <p className="text-gray-400 text-base">
+            Located in the heart of Hyderabad's business district
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           
-          {/* Map Placeholder */}
-          <div className="bg-primary-gray rounded-lg overflow-hidden h-96">
-            <div className="w-full h-full bg-gradient-to-br from-primary-gray to-primary-black flex items-center justify-center">
-              <div className="text-center">
-                <MapPin size={48} className="text-secondary-gold mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Interactive Map</h3>
-                <p className="text-text-gray">123 Music Row, Nashville, TN 37203</p>
-                <button className="btn-primary mt-4">
-                  Get Directions
-                </button>
-              </div>
-            </div>
+          {/* Embedded Google Map */}
+          <div className="bg-black rounded-lg overflow-hidden h-80 border border-gray-800">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253799.31501047517!2d78.24289063344436!3d17.412280734631775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C%20Telangana!5e1!3m2!1sen!2sin!4v1753112255998!5m2!1sen!2sin"
+              width="100%" 
+              height="100%" 
+              style={{border: 0, filter: 'invert(0.9) contrast(1.2) hue-rotate(180deg)'}} 
+              allowFullScreen="" 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Hyderabad Office Location"
+            />
           </div>
 
           {/* Office Details */}
-          <div className="space-y-6">
-            <div className="bg-primary-black p-6 rounded-lg">
-              <h3 className="text-2xl font-semibold mb-4">Studio Features</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="space-y-4">
+            <div className="bg-black p-5 rounded-lg border border-gray-800">
+              <h3 className="text-lg font-medium mb-3 text-white">Studio Features</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {officeFeatures.map((feature, index) => {
                   const Icon = feature.icon;
                   return (
-                    <div key={index} className="flex items-start gap-3">
-                      <div className="bg-secondary-gold text-primary-black p-2 rounded">
-                        <Icon size={16} />
+                    <div key={index} className="flex items-start gap-2">
+                      <div className="bg-red-600 text-white p-1.5 rounded">
+                        <Icon size={14} />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-sm">{feature.title}</h4>
-                        <p className="text-text-gray text-sm">{feature.description}</p>
+                        <h4 className="font-medium text-xs text-white">{feature.title}</h4>
+                        <p className="text-gray-400 text-xs">{feature.description}</p>
                       </div>
                     </div>
                   );
@@ -74,39 +74,26 @@ const OfficeLocation = () => {
               </div>
             </div>
 
-            <div className="bg-primary-black p-6 rounded-lg">
-              <h3 className="text-2xl font-semibold mb-4">Schedule a Visit</h3>
-              <p className="text-text-gray mb-4">
-                Experience our state-of-the-art facilities and meet our team in person.
-              </p>
-              <div className="space-y-3">
-                <button className="btn-primary w-full">
-                  Book Studio Tour
-                </button>
-                <button className="btn-secondary w-full">
-                  Virtual Tour
-                </button>
-              </div>
-            </div>
+            
 
-            <div className="bg-primary-black p-6 rounded-lg">
-              <h3 className="text-2xl font-semibold mb-4">Contact Hours</h3>
-              <div className="space-y-2 text-sm">
+            <div className="bg-black p-5 rounded-lg border border-gray-800">
+              <h3 className="text-lg font-medium mb-3 text-white">Contact Hours</h3>
+              <div className="space-y-1.5 text-xs">
                 <div className="flex justify-between">
-                  <span className="text-text-gray">Monday - Friday:</span>
-                  <span>9:00 AM - 6:00 PM</span>
+                  <span className="text-gray-400">Monday - Friday:</span>
+                  <span className="text-white">9:00 AM - 6:00 PM</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-text-gray">Saturday:</span>
-                  <span>10:00 AM - 4:00 PM</span>
+                  <span className="text-gray-400">Saturday:</span>
+                  <span className="text-white">10:00 AM - 4:00 PM</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-text-gray">Sunday:</span>
-                  <span>By appointment</span>
+                  <span className="text-gray-400">Sunday:</span>
+                  <span className="text-white">By appointment</span>
                 </div>
-                <div className="flex justify-between border-t border-primary-gray pt-2">
-                  <span className="text-secondary-gold">Emergency Support:</span>
-                  <span className="text-secondary-gold">24/7 Available</span>
+                <div className="flex justify-between border-t border-gray-700 pt-1.5">
+                  <span className="text-red-500">Emergency Support:</span>
+                  <span className="text-red-500">24/7 Available</span>
                 </div>
               </div>
             </div>
