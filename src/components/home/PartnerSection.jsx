@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 // Import your actual logo images - make sure these paths match your folder structure
 import anamikatv from '../../assets/partners/anamikatv.jpg';
 import bhumi from '../../assets/partners/bhumi.jpg';
-import bollywoodkilla from '../../assets/partners/bollywoodkilla.jpg';
+import bollywoodkilla from '../../assets/partners/bollywoodKilla.jpg';
 import cinema from '../../assets/partners/cinemaj.jpg';
 import hindimoralstories from '../../assets/partners/hindimoralstories.jpg';
 import lgfstudio from '../../assets/partners/lgfstudios.jpg';
