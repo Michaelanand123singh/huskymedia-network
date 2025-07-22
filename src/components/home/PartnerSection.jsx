@@ -16,68 +16,79 @@ const partners = [
     id: 1,
     name: "Anamika TV",
     logo: anamikatv,
-    type: "Production Partner"
+    type: "Production Partner",
+    url: "https://www.youtube.com/@AnamikaTVMamiyarMarumagal" // Add your actual URLs
   },
   {
     id: 2,
     name: "Bhumi Records Magahi",
     logo: bhumi,
-    type: "Content Partner"
+    type: "Content Partner",
+    url: "https://www.youtube.com/@BhumiRecordsMaghi" // Add your actual URLs
   },
   {
     id: 3,
     name: "Bollywood Killa",
     logo: bollywoodkilla,
-    type: "Technology Partner"
+    type: "Technology Partner",
+    url: "https://www.youtube.com/@Bollywoodkilla" // Add your actual URLs
   },
   {
     id: 4,
     name: "Cinema Productions",
     logo: cinema,
-    type: "Creative Partner"
+    type: "Creative Partner",
+    url: "https://www.youtube.com/@cinemajatara" // Add your actual URLs
   },
   {
     id: 5,
     name: "Hindi Moral Stories",
-    logo: hindimoralstories, // Using existing logo as placeholder
-    type: "Distribution Partner"
+    logo: hindimoralstories,
+    type: "Distribution Partner",
+    url: "https://www.youtube.com/@HindiMoralStories" // Add your actual URLs
   },
   {
     id: 6,
     name: "lgfsstudios",
-    logo: lgfstudio, // Using existing logo as placeholder
-    type: "Infrastructure Partner"
+    logo: lgfstudio,
+    type: "Infrastructure Partner",
+    url: "https://www.youtube.com/@LGFStudios" // Add your actual URLs
   },
   {
     id: 7,
     name: "macdocsfilms",
     logo: macdocsfilms,
-    type: "partners"
+    type: "partners",
+    url: "https://www.youtube.com/@MaddockFilms" // Add your actual URLs
   },
   {
     id: 8,
     name: "raushanrohi",
     logo: raushanrohi,
-    type: "partner"
+    type: "partner",
+    url: "https://www.youtube.com/channel/UCh6r40fbLs62rieVnODZkSw" // Add your actual URLs
   },
   {
     id: 9,
     name: "telguVideos",
     logo: telguvideos,
     type: "partner",
+    url: "https://www.youtube.com/@TeluguVideoZ/featured" // Add your actual URLs
   },
   // Duplicating for continuous scroll effect
   {
-    id: 7,
+    id: 10,
     name: "RK Studios",
     logo: cinema,
-    type: "Production Partner"
+    type: "Production Partner",
+    url: "https://www.youtube.com/@RKStudios" // Add your actual URLs
   },
   {
-    id: 8,
+    id: 11,
     name: "Maddock Films",
     logo: bollywoodkilla,
-    type: "Content Partner"
+    type: "Content Partner",
+    url: "https://www.youtube.com/@MaddockFilms" // Add your actual URLs
   }
 ];
 
@@ -95,6 +106,16 @@ const PartnersSection = () => {
 
     return () => clearInterval(interval);
   }, []);
+
+  const handlePartnerClick = (url, name) => {
+    if (url) {
+      // Track click event (optional)
+      console.log(`Clicked on partner: ${name}`);
+      
+      // Open link in new tab
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
+  };
 
   return (
     <section className="py-16 bg-black border-y border-gray-800">
@@ -154,12 +175,29 @@ const PartnersSection = () => {
               {partners.map((partner, index) => (
                 <div
                   key={`${partner.id}-${index}`}
-                  className="flex-shrink-0 w-48 h-24 bg-gray-800 rounded-xl border border-gray-700 flex items-center justify-center p-4 hover:bg-gray-750 hover:border-red-500 transition-all duration-300 group relative overflow-hidden"
+                  className="flex-shrink-0 w-48 h-24 bg-gray-800 rounded-xl border border-gray-700 flex items-center justify-center p-4 hover:bg-gray-750 hover:border-red-500 transition-all duration-300 group relative overflow-hidden cursor-pointer"
                   onMouseEnter={() => setHoveredCard(`${partner.id}-${index}`)}
                   onMouseLeave={() => setHoveredCard(null)}
+                  onClick={() => handlePartnerClick(partner.url, partner.name)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      handlePartnerClick(partner.url, partner.name);
+                    }
+                  }}
+                  title={`Visit ${partner.name}`}
                 >
                   {/* Hover effect overlay */}
                   <div className={`absolute inset-0 bg-gradient-to-r from-red-500/10 to-red-700/10 transition-opacity duration-300 ${hoveredCard === `${partner.id}-${index}` ? 'opacity-100' : 'opacity-0'}`}></div>
+                  
+                  {/* Click indicator */}
+                  <div className={`absolute top-2 right-2 w-4 h-4 bg-red-500/20 rounded-full flex items-center justify-center transition-all duration-300 ${hoveredCard === `${partner.id}-${index}` ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`}>
+                    <svg className="w-2 h-2 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </div>
                   
                   <div className="text-center relative z-10 w-full">
                     {/* Logo Image */}
@@ -167,19 +205,31 @@ const PartnersSection = () => {
                       <img
                         src={partner.logo}
                         alt={`${partner.name} logo`}
-                        className="max-w-full max-h-full object-contain"
+                        className="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105"
                         style={{ maxWidth: '100px', maxHeight: '40px' }}
                       />
                     </div>
                     
                     {/* Partner Type */}
-                    <div className="text-xs text-gray-500 uppercase tracking-wide font-medium">
+                    <div className="text-xs text-gray-500 uppercase tracking-wide font-medium group-hover:text-gray-400 transition-colors">
                       {partner.type}
                     </div>
                   </div>
                 </div>
               ))}
             </div>
+          </div>
+          
+          {/* Click instruction */}
+          <div className="text-center mt-4">
+            <p className="text-xs text-gray-500">
+              <span className="inline-flex items-center">
+                <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.121 2.122" />
+                </svg>
+                Click on any partner logo to visit their channel
+              </span>
+            </p>
           </div>
         </div>
 
