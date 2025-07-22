@@ -1,53 +1,61 @@
 import { useState, useEffect } from 'react';
 
+// Mock logo URLs for demonstration - replace with your actual logo paths
+const logoPlaceholders = {
+  anamikatv: "https://via.placeholder.com/120x60/374151/ffffff?text=Anamika+TV",
+  bhumi: "https://via.placeholder.com/120x60/374151/ffffff?text=Bhumi+Records",
+  bollywoodkilla: "https://via.placeholder.com/120x60/374151/ffffff?text=Bollywood+Killa",
+  cinema: "https://via.placeholder.com/120x60/374151/ffffff?text=Cinema"
+};
+
 const partners = [
   {
     id: 1,
-    name: "RK Studios",
-    logo: "/images/partners/rk-studios.png",
+    name: "Anamika TV",
+    logo: logoPlaceholders.anamikatv, // Using placeholder - replace with your actual import
     type: "Production Partner"
   },
   {
     id: 2,
-    name: "Maddock Films",
-    logo: "/images/partners/maddock.png",
+    name: "Bhumi Records Magahi",
+    logo: logoPlaceholders.bhumi, // Using placeholder - replace with your actual import
     type: "Content Partner"
   },
   {
     id: 3,
-    name: "Nova Studios",
-    logo: "/images/partners/nova-studios.png",
+    name: "Bollywood Killa",
+    logo: logoPlaceholders.bollywoodkilla, // Fixed: was empty string
     type: "Technology Partner"
   },
   {
     id: 4,
     name: "2000s Pictures",
-    logo: "/images/partners/2000s-pictures.png",
+    logo: "https://via.placeholder.com/120x60/374151/ffffff?text=2000s+Pictures",
     type: "Creative Partner"
   },
   {
     id: 5,
     name: "VVR Entertainment",
-    logo: "/images/partners/vvr.png",
+    logo: "https://via.placeholder.com/120x60/374151/ffffff?text=VVR+Entertainment",
     type: "Distribution Partner"
   },
   {
     id: 6,
     name: "Film City Studios",
-    logo: "/images/partners/film-city.png",
+    logo: "https://via.placeholder.com/120x60/374151/ffffff?text=Film+City",
     type: "Infrastructure Partner"
   },
   // Duplicating for continuous scroll effect
   {
     id: 7,
     name: "RK Studios",
-    logo: "/images/partners/rk-studios.png",
+    logo: "https://via.placeholder.com/120x60/374151/ffffff?text=RK+Studios",
     type: "Production Partner"
   },
   {
     id: 8,
     name: "Maddock Films",
-    logo: "/images/partners/maddock.png",
+    logo: "https://via.placeholder.com/120x60/374151/ffffff?text=Maddock+Films",
     type: "Content Partner"
   }
 ];
@@ -55,6 +63,7 @@ const partners = [
 const PartnersSection = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [hoveredCard, setHoveredCard] = useState(null);
+  const [imageErrors, setImageErrors] = useState({});
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -66,6 +75,51 @@ const PartnersSection = () => {
 
     return () => clearInterval(interval);
   }, []);
+
+  const handleImageError = (partnerId, index) => {
+    setImageErrors(prev => ({
+      ...prev,
+      [`${partnerId}-${index}`]: true
+    }));
+  };
+
+  const renderLogo = (partner, index) => {
+    const key = `${partner.id}-${index}`;
+    const hasError = imageErrors[key];
+    
+    if (!partner.logo || partner.logo === "" || hasError) {
+      // Fallback: Display partner name as text logo
+      return (
+        <div className="w-full h-full flex flex-col items-center justify-center">
+          <div className="w-20 h-8 bg-white/10 rounded-md flex items-center justify-center mb-1">
+            <span className="text-[10px] font-bold text-white text-center px-1 leading-tight">
+              {partner.name.split(' ').map(word => word.charAt(0)).join('').substring(0, 3)}
+            </span>
+          </div>
+          <span className="text-[8px] text-gray-400 text-center leading-tight">
+            {partner.name}
+          </span>
+        </div>
+      );
+    }
+
+    return (
+      <div className="w-full h-full flex flex-col items-center justify-center">
+        <div className="w-20 h-8 bg-white/5 rounded-md flex items-center justify-center mb-1 overflow-hidden">
+          <img
+            src={partner.logo}
+            alt={`${partner.name} logo`}
+            className="max-w-full max-h-full object-contain filter brightness-90"
+            onError={() => handleImageError(partner.id, index)}
+            loading="lazy"
+          />
+        </div>
+        <span className="text-[8px] text-gray-400 text-center leading-tight">
+          {partner.name}
+        </span>
+      </div>
+    );
+  };
 
   return (
     <section className="py-16 bg-black border-y border-gray-800">
@@ -132,11 +186,11 @@ const PartnersSection = () => {
                   {/* Hover effect overlay */}
                   <div className={`absolute inset-0 bg-gradient-to-r from-red-500/10 to-red-700/10 transition-opacity duration-300 ${hoveredCard === `${partner.id}-${index}` ? 'opacity-100' : 'opacity-0'}`}></div>
                   
-                  <div className="text-center relative z-10">
-                    <div className="w-28 h-12 bg-gray-700 rounded-lg flex items-center justify-center mb-2 group-hover:bg-gray-600 transition-colors">
-                      <span className="text-xs font-semibold text-gray-300 group-hover:text-white">{partner.name}</span>
+                  <div className="text-center relative z-10 w-full h-full flex flex-col justify-between py-2">
+                    {renderLogo(partner, index)}
+                    <div className="text-[10px] text-gray-500 uppercase tracking-wider font-medium">
+                      {partner.type}
                     </div>
-                    <div className="text-xs text-gray-500 uppercase tracking-wide">{partner.type}</div>
                   </div>
                 </div>
               ))}

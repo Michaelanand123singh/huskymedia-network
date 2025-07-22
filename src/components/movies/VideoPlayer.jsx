@@ -1,7 +1,28 @@
 import { useState } from 'react';
 import { Play, Pause, Volume2, Maximize } from 'lucide-react';
 
-const VideoPlayer = ({ src, poster, title }) => {
+// YouTube Player Component
+const YouTubePlayer = ({ videoId, title }) => {
+  return (
+    <div className="relative bg-black rounded-lg overflow-hidden">
+      <div className="aspect-video w-full">
+        <iframe
+          width="100%"
+          height="100%"
+          src={`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&fs=1&cc_load_policy=0&iv_load_policy=3&autohide=0&controls=1`}
+          title={title}
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+          className="w-full h-full rounded-lg"
+        ></iframe>
+      </div>
+    </div>
+  );
+};
+
+// Local Video Player Component
+const LocalVideoPlayer = ({ src, poster, title }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [showControls, setShowControls] = useState(true);
 
@@ -48,6 +69,15 @@ const VideoPlayer = ({ src, poster, title }) => {
       </div>
     </div>
   );
+};
+
+// Main VideoPlayer Component that handles both YouTube and local videos
+const VideoPlayer = ({ src, poster, title, isYoutube = false, videoId = null }) => {
+  if (isYoutube && videoId) {
+    return <YouTubePlayer videoId={videoId} title={title} />;
+  }
+  
+  return <LocalVideoPlayer src={src} poster={poster} title={title} />;
 };
 
 export default VideoPlayer;
