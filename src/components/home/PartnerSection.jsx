@@ -1,61 +1,82 @@
 import { useState, useEffect } from 'react';
 
-// Mock logo URLs for demonstration - replace with your actual logo paths
-const logoPlaceholders = {
-  anamikatv: "https://via.placeholder.com/120x60/374151/ffffff?text=Anamika+TV",
-  bhumi: "https://via.placeholder.com/120x60/374151/ffffff?text=Bhumi+Records",
-  bollywoodkilla: "https://via.placeholder.com/120x60/374151/ffffff?text=Bollywood+Killa",
-  cinema: "https://via.placeholder.com/120x60/374151/ffffff?text=Cinema"
-};
+// Import your actual logo images - make sure these paths match your folder structure
+import anamikatv from '../../assets/partners/anamikatv.jpg';
+import bhumi from '../../assets/partners/bhumi.jpg';
+import bollywoodkilla from '../../assets/partners/bollywoodkilla.jpg';
+import cinema from '../../assets/partners/cinemaj.jpg';
+import hindimoralstories from '../../assets/partners/hindimoralstories.jpg';
+import lgfstudio from '../../assets/partners/lgfstudios.jpg';
+import macdocsfilms from '../../assets/partners/macdocsfilms.jpg';
+import raushanrohi from '../../assets/partners/raushanrohi.jpg';
+import telguvideos from '../../assets/partners/telguvideos.jpg';
 
 const partners = [
   {
     id: 1,
     name: "Anamika TV",
-    logo: logoPlaceholders.anamikatv, // Using placeholder - replace with your actual import
+    logo: anamikatv,
     type: "Production Partner"
   },
   {
     id: 2,
     name: "Bhumi Records Magahi",
-    logo: logoPlaceholders.bhumi, // Using placeholder - replace with your actual import
+    logo: bhumi,
     type: "Content Partner"
   },
   {
     id: 3,
     name: "Bollywood Killa",
-    logo: logoPlaceholders.bollywoodkilla, // Fixed: was empty string
+    logo: bollywoodkilla,
     type: "Technology Partner"
   },
   {
     id: 4,
-    name: "2000s Pictures",
-    logo: "https://via.placeholder.com/120x60/374151/ffffff?text=2000s+Pictures",
+    name: "Cinema Productions",
+    logo: cinema,
     type: "Creative Partner"
   },
   {
     id: 5,
-    name: "VVR Entertainment",
-    logo: "https://via.placeholder.com/120x60/374151/ffffff?text=VVR+Entertainment",
+    name: "Hindi Moral Stories",
+    logo: hindimoralstories, // Using existing logo as placeholder
     type: "Distribution Partner"
   },
   {
     id: 6,
-    name: "Film City Studios",
-    logo: "https://via.placeholder.com/120x60/374151/ffffff?text=Film+City",
+    name: "lgfsstudios",
+    logo: lgfstudio, // Using existing logo as placeholder
     type: "Infrastructure Partner"
+  },
+  {
+    id: 7,
+    name: "macdocsfilms",
+    logo: macdocsfilms,
+    type: "partners"
+  },
+  {
+    id: 8,
+    name: "raushanrohi",
+    logo: raushanrohi,
+    type: "partner"
+  },
+  {
+    id: 9,
+    name: "telguVideos",
+    logo: telguvideos,
+    type: "partner",
   },
   // Duplicating for continuous scroll effect
   {
     id: 7,
     name: "RK Studios",
-    logo: "https://via.placeholder.com/120x60/374151/ffffff?text=RK+Studios",
+    logo: cinema,
     type: "Production Partner"
   },
   {
     id: 8,
     name: "Maddock Films",
-    logo: "https://via.placeholder.com/120x60/374151/ffffff?text=Maddock+Films",
+    logo: bollywoodkilla,
     type: "Content Partner"
   }
 ];
@@ -63,7 +84,6 @@ const partners = [
 const PartnersSection = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [hoveredCard, setHoveredCard] = useState(null);
-  const [imageErrors, setImageErrors] = useState({});
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -75,51 +95,6 @@ const PartnersSection = () => {
 
     return () => clearInterval(interval);
   }, []);
-
-  const handleImageError = (partnerId, index) => {
-    setImageErrors(prev => ({
-      ...prev,
-      [`${partnerId}-${index}`]: true
-    }));
-  };
-
-  const renderLogo = (partner, index) => {
-    const key = `${partner.id}-${index}`;
-    const hasError = imageErrors[key];
-    
-    if (!partner.logo || partner.logo === "" || hasError) {
-      // Fallback: Display partner name as text logo
-      return (
-        <div className="w-full h-full flex flex-col items-center justify-center">
-          <div className="w-20 h-8 bg-white/10 rounded-md flex items-center justify-center mb-1">
-            <span className="text-[10px] font-bold text-white text-center px-1 leading-tight">
-              {partner.name.split(' ').map(word => word.charAt(0)).join('').substring(0, 3)}
-            </span>
-          </div>
-          <span className="text-[8px] text-gray-400 text-center leading-tight">
-            {partner.name}
-          </span>
-        </div>
-      );
-    }
-
-    return (
-      <div className="w-full h-full flex flex-col items-center justify-center">
-        <div className="w-20 h-8 bg-white/5 rounded-md flex items-center justify-center mb-1 overflow-hidden">
-          <img
-            src={partner.logo}
-            alt={`${partner.name} logo`}
-            className="max-w-full max-h-full object-contain filter brightness-90"
-            onError={() => handleImageError(partner.id, index)}
-            loading="lazy"
-          />
-        </div>
-        <span className="text-[8px] text-gray-400 text-center leading-tight">
-          {partner.name}
-        </span>
-      </div>
-    );
-  };
 
   return (
     <section className="py-16 bg-black border-y border-gray-800">
@@ -179,16 +154,26 @@ const PartnersSection = () => {
               {partners.map((partner, index) => (
                 <div
                   key={`${partner.id}-${index}`}
-                  className="flex-shrink-0 w-48 h-20 bg-gray-800 rounded-xl border border-gray-700 flex items-center justify-center p-4 hover:bg-gray-750 hover:border-red-500 transition-all duration-300 group relative overflow-hidden"
+                  className="flex-shrink-0 w-48 h-24 bg-gray-800 rounded-xl border border-gray-700 flex items-center justify-center p-4 hover:bg-gray-750 hover:border-red-500 transition-all duration-300 group relative overflow-hidden"
                   onMouseEnter={() => setHoveredCard(`${partner.id}-${index}`)}
                   onMouseLeave={() => setHoveredCard(null)}
                 >
                   {/* Hover effect overlay */}
                   <div className={`absolute inset-0 bg-gradient-to-r from-red-500/10 to-red-700/10 transition-opacity duration-300 ${hoveredCard === `${partner.id}-${index}` ? 'opacity-100' : 'opacity-0'}`}></div>
                   
-                  <div className="text-center relative z-10 w-full h-full flex flex-col justify-between py-2">
-                    {renderLogo(partner, index)}
-                    <div className="text-[10px] text-gray-500 uppercase tracking-wider font-medium">
+                  <div className="text-center relative z-10 w-full">
+                    {/* Logo Image */}
+                    <div className="w-full h-12 bg-white/5 rounded-lg flex items-center justify-center mb-2 overflow-hidden">
+                      <img
+                        src={partner.logo}
+                        alt={`${partner.name} logo`}
+                        className="max-w-full max-h-full object-contain"
+                        style={{ maxWidth: '100px', maxHeight: '40px' }}
+                      />
+                    </div>
+                    
+                    {/* Partner Type */}
+                    <div className="text-xs text-gray-500 uppercase tracking-wide font-medium">
                       {partner.type}
                     </div>
                   </div>
