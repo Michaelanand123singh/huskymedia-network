@@ -1,4 +1,12 @@
 import ajay from '../assets/featured/ajay.jpg';
+import srk from '../assets/featured/srk.jpg';
+import download from '../assets/featured/download.jpg';
+import deepika from '../assets/featured/deepika.jpg';
+import john from '../assets/featured/john.jpg';
+import ranveer from '../assets/featured/ranveer.jpg';
+import salman from '../assets/featured/salmankhan.jpg';
+import shahid from '../assets/featured/shahid.jpg';
+
 
 export const artists = [
   {
@@ -18,7 +26,7 @@ export const artists = [
   {
     id: 2,
     name: "Akshay Kumar",
-    image: "/images/artists/akshay-kumar.jpg",
+    image: download,
     genre: ["Action", "Comedy", "Drama"],
     status: "Rising",
     stats: {
@@ -32,7 +40,7 @@ export const artists = [
   {
     id: 3,
     name: "Deepika Padukone",
-    image: "/images/artists/deepika-padukone.jpg",
+    image: deepika,
     genre: ["Romance", "Drama", "Action"],
     status: "Established",
     stats: {
@@ -46,7 +54,7 @@ export const artists = [
   {
     id: 4,
     name: "Ranveer Singh",
-    image: "/images/artists/ranveer-singh.jpg",
+    image: ranveer,
     genre: ["Drama", "Romance", "Historical"],
     status: "Featured",
     stats: {
@@ -60,7 +68,7 @@ export const artists = [
   {
     id: 5,
     name: "Shahid Kapoor",
-    image: "/images/artists/shahid-kapoor.jpg",
+    image: shahid,
     genre: ["Romance", "Drama", "Thriller"],
     status: "Established",
     stats: {
@@ -74,7 +82,37 @@ export const artists = [
   {
     id: 6,
     name: "John Abraham",
-    image: "/images/artists/john-abraham.jpg",
+    image: john,
+    genre: ["Action", "Thriller", "Drama"],
+    status: "Rising",
+    stats: {
+      followers: "2.1M",
+      streams: "41M",
+      growth: "+22%"
+    },
+    description: "Action star and producer known for high-octane films and fitness inspiration.",
+
+    achievements: ["Producer Success", "Action Star", "Fitness Icon"]
+  },
+  {
+    id: 7,
+    name: "SRK",
+    image: srk,
+    genre: ["Action", "Thriller", "Drama"],
+    status: "Rising",
+    stats: {
+      followers: "2.1M",
+      streams: "41M",
+      growth: "+22%"
+    },
+    description: "Action star and producer known for high-octane films and fitness inspiration.",
+
+    achievements: ["Producer Success", "Action Star", "Fitness Icon"]
+  },
+  {
+    id: 8,
+    name: "Salman",
+    image: salman,
     genre: ["Action", "Thriller", "Drama"],
     status: "Rising",
     stats: {
